@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodfrenzy-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: foodfrenzy
+  template:
+    metadata:
+      labels:
+        app: foodfrenzy
+    spec:
+      containers:
+      - name: foodfrenzy
+        image: 123456789012.dkr.ecr.ap-south-1.amazonaws.com/foodfrenzy:latest
+        ports:
+        - containerPort: 8080
+
